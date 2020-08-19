@@ -1,0 +1,94 @@
+===================================================================================================
+                                   .___             __                 
+                                 __| _/____   ____ |  | __ ___________ 
+                                / __ |/  _ \_/ ___\|  |/ // __ \_  __ \
+                               / /_/ (  <_> )  \___|    <\  ___/|  | \/
+                               \____ |\____/ \___  >__|_ \\___  >__|   
+                                    \/           \/     \/    \/             
+===================================================================================================	 
+docker create
+	#docker create <container name> <command>
+		#create new instance of container (with optional commands) and output <container ID>
+		
+docker start
+	#docker start <container ID>
+		#starts a container, can start previously stopped/exited containers
+		
+docker run
+	#docker run -a
+		#makes docker listen and output console text
+	#docker create <container name> <command> + docker start <container ID>
+		#run command is create+start commands
+	#docker run -p externalport:internalport <image name>
+		#maps/forwards external traffic to internal container port i.e. "listening on port XXXX"
+
+docker ps --all	
+	#shows all containers
+	
+docker logs
+	#docker logs <container ID> 
+		#displays historical output of container
+	
+docker stop
+	#docker stop <container ID>
+		#stops container in own time, e.g. to save files etc via SIGTERM command (signal terminate)
+		
+docker kill
+	#docker kill <container ID>
+		#stops container asap
+
+docker system prune
+	#docker system prune 
+		#prunes all stopped containers, build cache etc
+		
+docker exec -it
+	#docker exec -it <container ID> <command>
+		#exec send another command to running container
+		# -it allows us to provide keyboard input to the focused container
+		#docker exec -it 627c87ed53cd redis-cli
+	#docker exec -it <container ID> sh
+		#start Shell in container for debugging etc
+
+docker build
+	 #docker build .
+		#build a container based on the "Dockerfile" file in specified location
+	 #docker build -t k3snoob/redis:latest .
+		#build a container and tag it with my Dockerhub-username/projectname:version name
+===================================================================================================
+    .___             __                                                                           
+  __| _/____   ____ |  | __ ___________            ____  ____   _____ ______   ____  ______ ____  
+ / __ |/  _ \_/ ___\|  |/ // __ \_  __ \  ______ _/ ___\/  _ \ /     \\____ \ /  _ \/  ___// __ \ 
+/ /_/ (  <_> )  \___|    <\  ___/|  | \/ /_____/ \  \__(  <_> )  Y Y  \  |_> >  <_> )___ \\  ___/ 
+\____ |\____/ \___  >__|_ \\___  >__|             \___  >____/|__|_|  /   __/ \____/____  >\___  >
+     \/           \/     \/    \/                     \/            \/|__|              \/     \/ 	
+===================================================================================================
+docker-compose
+	docker-compose up 
+		#starts containers from docker-compose.yml
+			docker-compose up -d 
+				#starts docker containers in the background
+	docker-compose down
+		#gracefully stops all containers in host location.
+			
+===================================================================================================                                                  
+                                   ____ ______   _____  
+                                  /    \\____ \ /     \ 
+                                 |   |  \  |_> >  Y Y  \
+                                 |___|  /   __/|__|_|  /
+                                      \/|__|         \/ 
+===================================================================================================
+npm <run> start
+	#Starts the development server.
+	
+npm run build
+	#Bundles the app into static files for production.
+	
+npm <run> test
+	#Starts the test runner.
+	
+npm run eject
+	#Removes this tool and copies build dependencies, configuration files
+	#and scripts into the app directory. If you do this, you can’t go back!
+
+npm install -g serve
+	serve -s build
